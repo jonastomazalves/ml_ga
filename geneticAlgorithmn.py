@@ -18,7 +18,7 @@ all_individuals = myHelpers.getIndividualsFromCSV("balance-scale.csv")
 
 def balance(individual, target=magical_number):
 	"""
-		Funcao de criterio
+		Funcao de criterio, o quanto mais proximo de 0 melhor
 	"""
 	numbersSum = []
 	numbersSum.append(ord(individual[0]))
@@ -34,7 +34,7 @@ def grade(pop, target=magical_number):
     summed = reduce(add, (balance(x, target) for x in pop), 0)
     return summed / (len(pop) * 1.0)
 
-def evolution(pop, target, retain=0.2, random_select=0.05, mutate=0.01):
+def evolution(pop, target=magical_number, retain=0.2, random_select=0.05, mutate=0.01):
 	"""
 		retain = porcentagem da populacao escolhida
 		random_select = porcentagem da populacao aleatoreamente escolhida
